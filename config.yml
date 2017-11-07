@@ -1,0 +1,138 @@
+##########################################################
+# +----------------------------------------------------+ #
+# |               MINER COIN PLUGIN                    | #
+# |                 VERSION v1.0                       | #
+# |            AUTHOR: YusrilTakeuchi                  | #
+# +----------------------------------------------------+ #
+##########################################################
+
+# Miner Coin is a plugin that can balance the economy in the server.
+# Therefore, this plugin can create a virtual currency called Ore Coins which will be the main
+# task of the players will be fixed to collect the money.
+# Ore Coins can be obtained by mining all kinds of stone or ore.
+# Player must use Survival mode, and Pickaxe Tool for EXP and Ore Coins can be increased.
+
+# This plugin requires an additional plugin like Vault. Vault is needed because
+# the financial system in this plugin relies on the economy of Vault is very commonly used.
+
+MinerCoin:
+
+##########################################################
+# +----------------------------------------------------+ #
+# |                Miner Coin Level                    | #
+# +----------------------------------------------------+ #
+##########################################################
+  # Basic settings at the character level
+  Level:
+  
+    # Maximum level that a player can accomplish
+    MaxLevel: 30
+    
+##########################################################
+# +----------------------------------------------------+ #
+# |             Miner Coin Notification                | #
+# +----------------------------------------------------+ #
+##########################################################
+  # Notification in a chat game
+  Notification:
+  
+    # Prefix the message when the message is displayed
+    Prefix: '&7[&aMiner Coin&7] '
+    
+    # Notification when player destroys an ore
+    BreakMessage: true
+    
+    # Notification when player has level up
+    # Notifications will be displayed in broadcast messages
+    LevelupMessage: true
+
+##########################################################
+# +----------------------------------------------------+ #
+# |                Miner Coin Reward                   | #
+# +----------------------------------------------------+ #
+##########################################################    
+  # The basic setting for reward players when it has leveled up
+  Reward:
+  
+    # Base money that will be earned when the player has leveled up
+    # This will display the formula (BaseMoney * level)
+    BaseMoney: 50
+    
+    # Kit gained when the player has leveled up
+    Kit:
+    
+      # This setting performs detection at the player level.
+      # The system will provide a kit on player based on player level
+      # If the player level is 2, the level setting will select number 2
+      Level:
+      
+        # The first configuration where you can edit by material type of item
+        # After that, you can enter the number of random numbers on the item to be sent to the player
+        # 2-4 is a random number at a distance from 2 to 4
+        '1':  
+        - STONE_AXE 1-2
+        - BREAD 2-4
+        - STEAK 1-3
+        '2':
+        - MELON 5-10
+        - IRON_INGOT 1-2
+        - COAL 8-13
+        '3':
+        - TORCH 8-16
+        - MILK_BUCKET 4-8
+        - APPLE 2-6
+        '4':
+        - MELON 2-4
+        - IRON_INGOT 4-6
+        - COAL 5-9
+        - IRON_PICKAXE 1-2
+        '5':
+        - IRON_SWORD 1-2
+        - ARROW 16-19
+        - BOW 1-2
+        - DIAMOND 3-5
+        
+        # If the player level is not present in the configuration,
+        # the system will make automatic selection by default.
+        Default:
+        - BREAD 6-10
+        - COAL 4-7
+        - IRON_INGOT 3-5
+        - DIAMOND 1-3
+        
+##########################################################
+# +----------------------------------------------------+ #
+# |             Miner Coin Ore Coins                   | #
+# +----------------------------------------------------+ #
+##########################################################    
+  # Basic settings for ore coins
+  OreCoin:
+  
+    # This is a base economy that displays the price of a total of 1 ORC
+    # If you change this value, the currency exchange rate of the ore coins on the server will change.
+    Price:
+      1ORC: 287500
+    # This is a price for Scroll Item
+    ScrollPrice:
+      DuplicatorOre: 0.02
+      DoubleExp: 0.03
+      DoubleORC: 0.04
+      
+    # This is the format to display the number of ore coins
+    # If you want to display the number of ore coins like
+    # (0.000256). Six number after comma, 
+    # you must also insert 6 '#' after comma.
+    DecimalFormat: '#.######'
+    
+    # This is the setting to change the default drops on an ore block like Iron Ore and Gold Ore.
+    # And turn them into iron ingot and gold ingot
+    BlockOreDrops: false
+  
+##########################################################
+# +----------------------------------------------------+ #
+# |              Miner Coin Currency                   | #
+# +----------------------------------------------------+ #
+##########################################################    
+  # A currency symbol displayed in the server
+  Currency:
+    MoneySymbol: $

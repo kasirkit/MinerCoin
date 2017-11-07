@@ -1,0 +1,42 @@
+name: MinerCoin
+main: me.yurani.minercoin.Main
+description: Miner Coin is an roleplaying plugin for mining to get a coin
+version: 1.0
+author: YusrilTakeuchi
+depend: [Vault]
+
+commands:
+   miner:
+      aliases: [mn, minercoin]
+      description: Default Miner Coin Command
+   miner help:
+      description: Open help command
+   miner status:
+      description: View the player status
+   miner view:
+      description: View the other player status
+   miner xp:
+      description: View the experience of the block
+   miner addxp:
+      description: Add xp to the player
+   miner reset:
+      description: Reset the player status
+   miner orc base:
+      description: View the ore coins price of the block
+   miner orc shop:
+      description: Open ore coins shop
+   miner orc transfer:
+      description: Transfer ore coins to another player
+   miner reload:
+      description: Reloading the plugin
+      
+permissions:
+   minercoin.level.addxp:
+      description: Use this command to add exp to the player.
+      default: op
+   minercoin.view.other:
+      description: View the other person status
+      default: op
+   minercoin.reload:
+      description: Reloading the plugin
+      default: op
